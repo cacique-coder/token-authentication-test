@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>server test</title>
+    <style>
+      .ok{ color:green;}
+      .fail {color:red;}
+      body.loading{ cursor: 'wait'; }
+    </style>
+  </head>
+  <body>
+   <div id='login'>
+      <form action="/api/authentication" method="post">
+        <h2>GET TOKEN</h2>
+        <input type="email" name="users[email]" id="user_email" />
+        <input type="password" name="users[password]" id="user_password" />
+        <input type="submit" name="" id="" value="Log" />
+      </form>
+    </div>
+    <hr>
+      <form action="/api/private" data-secure=true method="get">
+        <h2> REQUEST SECURE </h2>
+        <input type="submit" value='SECURE'>
+      </form>
+    <hr>
+      <form action="/api/public" method="get">
+        <h2> Request public, not require token </h2>
+        <input type="submit" value='Public'>
+      </form>
+    <hr>
+      <form action="/api/private" method="get">
+        <h2> Request private, require token but is not sended </h2>
+        <input type="submit" value='Not secure'>
+      </form>
+
+    <hr>
+
+    <div id="response" class="ok"></div>
+    <div id="response" class="fail"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/app.js" type="text/javascript" charset="utf-8"></script>
+
+  </body>
+</html>
